@@ -1,0 +1,11 @@
+{
+  "username": "ubuntu",
+  "ip": "18.162.194.181",
+  "barkisdPath": "binary/barkisd",
+  "certPath": "~/ssh/barkis-testnet-hk.pem",
+  "moniker": "testnet-hk3",
+  "genesis": "https://raw.githubusercontent.com/pengqi-bc/barkis-testnet/master/genesis.json",
+  "seed": "",
+  "persistent_peers": "087eed6e217755923634ea5a2c7b0f868587fe67@39.100.156.135:26656,56379fcda0a13319ee772e6e6e28476b1f179676@52.198.244.242:26656",
+  "gasPrice": "0.1ubarkis"
+}

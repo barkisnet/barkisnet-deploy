@@ -8,12 +8,9 @@
   "username": "ubuntu",
   "ip": "18.162.194.181",
   "certPath": "~/ssh/barkis-testnet-hk.pem",
-  "moniker": "testnet-hk3",
+  "moniker": "barkisnet-testnet-hk3",
   "gasPrice": "0.01ubarkis",
-  "barkisdPath": "binary/barkisd",
-  "genesis": "https://raw.githubusercontent.com/pengqi-bc/barkis-testnet/master/genesis.json",
-  "seed": "",
-  "persistent_peers": "087eed6e217755923634ea5a2c7b0f868587fe67@39.100.156.135:26656,56379fcda0a13319ee772e6e6e28476b1f179676@52.198.244.242:26656"
+  "networkConfig" : "https://raw.githubusercontent.com/pengqi-bc/testnet/master/barkisnet-testnet-1000"
 }
 ```
 
@@ -24,10 +21,7 @@
 | certPath | 服务器登陆的证书 | 是 |
 | moniker | 区块链节点名称 | 是 |
 | gasPrice | 最小gasPrice | 是 |
-| barkisdPath | barkis区块链节点可执行文件 | 否 |
-| genesis | 创世块的URL | 否 |
-| seed | 种子节点 | 否 |
-| persistent_peers | 长连接节点 | 否 |
+| networkConfig | 测试网创世块和配置文件的URL | 否 |
 
 ## 命令
 

@@ -28,8 +28,7 @@ chmod +x barkiscli
 ./barkisd init $moniker --home $nodeHome
 cp genesis.json $nodeHome/config/genesis.json
 sed -i -e "s/seeds = \"\"/seeds = \"$seed\"/g" $nodeHome/config/config.toml
-sed -i -e "s/0.0.0.0:26656/0.0.0.0:36656/g" $nodeHome/config/config.toml
-sed -i -e "s/127.0.0.1:26657/0.0.0.0:36657/g" $nodeHome/config/config.toml
+sed -i -e "s/127.0.0.1:26657/0.0.0.0:26657/g" $nodeHome/config/config.toml
 sed -i -e "s/persistent_peers = \"\"/persistent_peers = \"$persistent_peers\"/g" $nodeHome/config/config.toml
 
-nohup ./barkisd start --minimum-gas-prices $gas_price > barkisd.log 2>&1 &
+nohup ./barkisd start --home $nodeHome --minimum-gas-prices $gas_price > barkisd.log 2>&1 &

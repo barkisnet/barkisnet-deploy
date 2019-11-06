@@ -1,8 +1,0 @@
-{
-  "username": "ubuntu",
-  "ip": "18.162.194.181",
-  "certPath": "~/ssh/barkis-testnet-hk.pem",
-  "moniker": "barkisnet-testnet-hk3",
-  "gasPrice": "0.01ubarkis",
-  "networkConfig" : "https://raw.githubusercontent.com/pengqi-bc/testnet/master/barkisnet-testnet-1000"
-}

@@ -12,7 +12,7 @@ fi
 curDir=$(pwd)
 username=$USER
 nodeHome=barkisNode
-configUrl=https://raw.githubusercontent.com/pengqi-bc/master/add-service/barkisnet-test
+configUrl=https://raw.githubusercontent.com/pengqi-bc/barkisnet-binary/master/barkisnet-mainnet
 
 wget $configUrl/binary/barkisd
 wget $configUrl/binary/barkiscli

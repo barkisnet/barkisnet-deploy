@@ -3,11 +3,11 @@
 ## Command
 
 ```shell
-wget https://raw.githubusercontent.com/pengqi-bc/deploy/master/deploy_testnet.sh -o deploy_testnet.sh && sh deploy_testnet.sh [moniker] [miniGasPrice]
+wget https://raw.githubusercontent.com/pengqi-bc/deploy/master/deploy_testnet.sh -O deploy_testnet.sh && sh deploy_testnet.sh [moniker] [miniGasPrice]
 ```
 
 Example command:
 
 ```shell
-wget https://raw.githubusercontent.com/pengqi-bc/deploy/master/deploy_testnet.sh -o deploy_testnet.sh && sh deploy_testnet.sh myBarkisNode 0.01ubarkis
+wget https://raw.githubusercontent.com/pengqi-bc/deploy/master/deploy_testnet.sh -O deploy_testnet.sh && sh deploy_testnet.sh myBarkisNode 0.01ubarkis
 ```

@@ -2,6 +2,11 @@
 
 ## Command
 
+
+```shell
+sudo apt update
+```
+
 ```shell
 wget https://raw.githubusercontent.com/barkisnet/barkisnet-deploy/master/mainnet/deploy.sh -O deploy.sh && sh deploy.sh [moniker] [miniGasPrice]
 ```

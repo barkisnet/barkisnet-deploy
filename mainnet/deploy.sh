@@ -3,23 +3,29 @@
 moniker=$1
 gas_price=$2
 
+if [ -z "$moniker" ] || [ -z "$gas_price" ]
+then
+      echo "Wrong usage!! Correct usage: sh deploy.sh [moniker] [mini_gas_price]"
+      exit 0
+fi
+
 jqPath=$(which jq)
 if [ -z "$jqPath" ]
 then
-      sudo apt-get install jq -y
+  sudo apt install jq -y
 fi
 
 curDir=$(pwd)
 username=$USER
 nodeHome=barkisNode
-configUrl=https://raw.githubusercontent.com/barkisnet/barkisnet-binary/master/barkisnet-mainnet
+configUrl=https://raw.githubusercontent.com/barkisnet/barkisnet-binary/master
 
-wget $configUrl/binary/barkisd
-wget $configUrl/binary/barkiscli
-wget $configUrl/genesis.json
-wget $configUrl/networkConfig.json
-wget $configUrl/barkis-validator-daemon
-wget $configUrl/barkis-validator-daemon.service
+wget $configUrl/barkisnet-mainnet/binary/barkisd
+wget $configUrl/barkisnet-mainnet/binary/barkiscli
+wget $configUrl/barkisnet-mainnet/genesis.json
+wget $configUrl/barkisnet-mainnet/networkConfig.json
+wget $configUrl/barkisnet-mainnet/barkis-validator-daemon
+wget $configUrl/barkisnet-mainnet/barkis-validator-daemon.service
 
 configFile=networkConfig.json
 

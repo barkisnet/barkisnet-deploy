@@ -5,8 +5,8 @@ gas_price=$2
 
 if [ -z "$moniker" ] || [ -z "$gas_price" ]
 then
-      echo "Wrong usage!! Correct usage: sh deploy.sh [moniker] [mini_gas_price]"
-      exit 0
+  echo "Wrong usage!! Correct usage: sh deploy.sh [moniker] [mini_gas_price]"
+  exit 0
 fi
 
 jqPath=$(which jq)
@@ -15,17 +15,25 @@ then
   sudo apt install jq -y
 fi
 
+jqPath=$(which jq)
+if [ -z "$jqPath" ]
+then
+  echo "Install jq failed, abort!"
+  exit 0
+fi
+
 curDir=$(pwd)
 username=$USER
 nodeHome=barkisNode
+networkType=barkisnet-mainnet
 configUrl=https://raw.githubusercontent.com/barkisnet/barkisnet-binary/master
 
-wget $configUrl/barkisnet-mainnet/binary/barkisd
-wget $configUrl/barkisnet-mainnet/binary/barkiscli
-wget $configUrl/barkisnet-mainnet/genesis.json
-wget $configUrl/barkisnet-mainnet/networkConfig.json
-wget $configUrl/barkisnet-mainnet/barkis-validator-daemon
-wget $configUrl/barkisnet-mainnet/barkis-validator-daemon.service
+wget $configUrl/$networkType/binary/barkisd -O barkisd
+wget $configUrl/$networkType/binary/barkiscli -O barkiscli
+wget $configUrl/$networkType/genesis.json -O genesis.json
+wget $configUrl/$networkType/networkConfig.json -O networkConfig.json
+wget $configUrl/$networkType/barkis-validator-daemon -O barkis-validator-daemon
+wget $configUrl/$networkType/barkis-validator-daemon.service -O barkis-validator-daemon.service
 
 configFile=networkConfig.json
 

@@ -9,6 +9,8 @@ then
   exit 0
 fi
 
+sudo apt update
+
 jqPath=$(which jq)
 if [ -z "$jqPath" ]
 then

@@ -43,7 +43,6 @@ chmod +x barkis-validator-daemon
 
 sed -i -e "s@{{WORKDIR}}@$curDir@g" barkis-validator-daemon
 sed -i -e "s@{{BARKIS_HOME}}@$nodeHome@g" barkis-validator-daemon
-sed -i -e "s@{{MINI_GAS_PRICE}}@$gas_price@g" barkis-validator-daemon
 sed -i -e "s@{{USER_NAME}}@$username@g" barkis-validator-daemon
 sed -i -e "s@{{USER_GROUP}}@$username@g" barkis-validator-daemon
 
@@ -53,6 +52,7 @@ sudo cp barkis-validator-daemon.service /etc/systemd/system
 ./barkisd init $moniker --home $nodeHome
 cp genesis.json $nodeHome/config/genesis.json
 
+sed -i -e "s/minimum-gas-prices = \"\"/minimum-gas-prices = \"$gas_price\"/g" $nodeHome/config/app.toml
 sed -i -e "s/persistent_peers = \"\"/persistent_peers = \"$sentry_node\"/g" $nodeHome/config/config.toml
 
 # Deny inbond peer connection

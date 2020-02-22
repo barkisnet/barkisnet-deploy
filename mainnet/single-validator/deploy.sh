@@ -1,7 +1,8 @@
 #!/bin/sh
 
-moniker=$1
-gas_price=$2
+bin_version=$1
+moniker=$2
+gas_price=$3
 
 if [ -z "$moniker" ] || [ -z "$gas_price" ]
 then
@@ -30,8 +31,8 @@ nodeHome=barkisNode
 networkType=barkisnet-mainnet
 configUrl=https://raw.githubusercontent.com/barkisnet/barkisnet-binary/master
 
-wget $configUrl/$networkType/binary/barkisd -O barkisd
-wget $configUrl/$networkType/binary/barkiscli -O barkiscli
+wget $configUrl/$networkType/binary/$bin_version/barkisd -O barkisd
+wget $configUrl/$networkType/binary/$bin_version/barkiscli -O barkiscli
 wget $configUrl/$networkType/genesis.json -O genesis.json
 wget $configUrl/$networkType/networkConfig.json -O networkConfig.json
 wget $configUrl/$networkType/barkis-validator-daemon -O barkis-validator-daemon

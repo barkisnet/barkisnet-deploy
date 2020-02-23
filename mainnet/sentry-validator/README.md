@@ -4,13 +4,13 @@
 
 ### Deploy
 ```shell
-cd $HOME && wget https://raw.githubusercontent.com/barkisnet/barkisnet-deploy/master/mainnet/sentry-validator/deploy-sentry.sh -O deploy-sentry.sh && sh deploy-sentry.sh [moniker] [miniGasPrice]
+cd $HOME && wget https://raw.githubusercontent.com/barkisnet/barkisnet-deploy/master/mainnet/sentry-validator/deploy-sentry.sh -O deploy-sentry.sh && sh deploy-sentry.sh [moniker] [miniGasPrice] [version]
 ```
 
 Example command:
 
 ```shell
-cd $HOME && wget https://raw.githubusercontent.com/barkisnet/barkisnet-deploy/master/mainnet/sentry-validator/deploy-sentry.sh -O deploy-sentry.sh && sh deploy-sentry.sh myBarkisNode 0.01ubarkis
+cd $HOME && wget https://raw.githubusercontent.com/barkisnet/barkisnet-deploy/master/mainnet/sentry-validator/deploy-sentry.sh -O deploy-sentry.sh && sh deploy-sentry.sh myBarkisNode 0.01ubarkis v2.2.1
 ```
 
 ### Get sentry node peer info
@@ -26,7 +26,7 @@ Suppose the localnet IP of sentry node is `172.31.46.241`, then the sentry node 
 
 - Deploy validator
 ```shell
-cd $HOME && wget https://raw.githubusercontent.com/barkisnet/barkisnet-deploy/master/mainnet/sentry-validator/deploy-validator.sh -O deploy-validator.sh && sh deploy-validator.sh [moniker] [miniGasPrice] [sentryNodePeerInfo]
+cd $HOME && wget https://raw.githubusercontent.com/barkisnet/barkisnet-deploy/master/mainnet/sentry-validator/deploy-validator.sh -O deploy-validator.sh && sh deploy-validator.sh [moniker] [miniGasPrice] [version] [sentryNodePeerInfo]
 ```
 
 - Get validator node id

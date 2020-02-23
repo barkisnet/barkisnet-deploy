@@ -2,6 +2,7 @@
 
 moniker=$1
 gas_price=$2
+version=$3
 
 if [ -z "$moniker" ] || [ -z "$gas_price" ]
 then
@@ -30,8 +31,10 @@ nodeHome=barkisNode
 networkType=barkisnet-mainnet
 configUrl=https://raw.githubusercontent.com/barkisnet/barkisnet-binary/master
 
-wget $configUrl/$networkType/binary/barkisd -O barkisd
-wget $configUrl/$networkType/binary/barkiscli -O barkiscli
+mkdir bin/$version -p
+
+wget $configUrl/$networkType/binary/barkisd -O bin/$version/barkisd
+wget $configUrl/$networkType/binary/barkiscli -O bin/$version/barkiscli
 wget $configUrl/$networkType/genesis.json -O genesis.json
 wget $configUrl/$networkType/networkConfig.json -O networkConfig.json
 wget $configUrl/$networkType/barkis-validator-daemon -O barkis-validator-daemon
@@ -42,11 +45,12 @@ configFile=networkConfig.json
 seed=$(jq -r .seed $configFile)
 persistent_peers=$(jq -r .persistent_peers $configFile)
 
-chmod +x barkisd
-chmod +x barkiscli
+chmod +x bin/$version/barkisd
+chmod +x bin/$version/barkiscli
 chmod +x barkis-validator-daemon
 
 sed -i -e "s@{{WORKDIR}}@$curDir@g" barkis-validator-daemon
+sed -i -e "s@{{VERSION}}@$version@g" barkis-validator-daemon
 sed -i -e "s@{{BARKIS_HOME}}@$nodeHome@g" barkis-validator-daemon
 sed -i -e "s@{{USER_NAME}}@$username@g" barkis-validator-daemon
 sed -i -e "s@{{USER_GROUP}}@$username@g" barkis-validator-daemon
@@ -54,9 +58,17 @@ sed -i -e "s@{{USER_GROUP}}@$username@g" barkis-validator-daemon
 sudo cp barkis-validator-daemon /etc/init.d/
 sudo cp barkis-validator-daemon.service /etc/systemd/system
 
-./barkisd init $moniker --home $nodeHome
+./bin/$version/barkisd init $moniker --home $nodeHome
 cp genesis.json $nodeHome/config/genesis.json
 sed -i -e "s/minimum-gas-prices = \"\"/minimum-gas-prices = \"$gas_price\"/g" $nodeHome/config/app.toml
+
+for index in $(jq -r '.upgrade | keys | .[]' $configFile); do
+    upgradeName=$(jq -r .upgrade[$index].name $configFile)
+    upgradeHeight=$(jq -r .upgrade[$index].height $configFile)
+
+    sed -i -e "s/$upgradeName = 9223372036854775807/$upgradeName = $upgradeHeight/g" $nodeHome/config/app.toml
+done
+
 sed -i -e "s/seeds = \"\"/seeds = \"$seed\"/g" $nodeHome/config/config.toml
 sed -i -e "s/127.0.0.1:26657/0.0.0.0:26657/g" $nodeHome/config/config.toml
 sed -i -e "s/persistent_peers = \"\"/persistent_peers = \"$persistent_peers\"/g" $nodeHome/config/config.toml

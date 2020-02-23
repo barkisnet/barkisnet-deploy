@@ -2,7 +2,8 @@
 
 moniker=$1
 gas_price=$2
-sentry_node=$3
+version=$3
+sentry_node=$4
 
 if [ -z "$moniker" ] || [ -z "$gas_price" ] || [ -z "$sentry_node" ]
 then
@@ -31,17 +32,20 @@ nodeHome=barkisNode
 networkType=barkisnet-mainnet
 configUrl=https://raw.githubusercontent.com/barkisnet/barkisnet-binary/master
 
-wget $configUrl/$networkType/binary/barkisd -O barkisd
-wget $configUrl/$networkType/binary/barkiscli -O barkiscli
+mkdir bin/$version -p
+
+wget $configUrl/$networkType/binary/$version/barkisd -O bin/$version/barkisd
+wget $configUrl/$networkType/binary/$version/barkiscli -O bin/$version/barkiscli
 wget $configUrl/$networkType/genesis.json -O genesis.json
 wget $configUrl/$networkType/barkis-validator-daemon -O barkis-validator-daemon
 wget $configUrl/$networkType/barkis-validator-daemon.service -O barkis-validator-daemon.service
 
-chmod +x barkisd
-chmod +x barkiscli
+chmod +x bin/$version/barkisd
+chmod +x bin/$version/barkiscli
 chmod +x barkis-validator-daemon
 
 sed -i -e "s@{{WORKDIR}}@$curDir@g" barkis-validator-daemon
+sed -i -e "s@{{VERSION}}@$version@g" barkis-validator-daemon
 sed -i -e "s@{{BARKIS_HOME}}@$nodeHome@g" barkis-validator-daemon
 sed -i -e "s@{{USER_NAME}}@$username@g" barkis-validator-daemon
 sed -i -e "s@{{USER_GROUP}}@$username@g" barkis-validator-daemon
@@ -49,10 +53,18 @@ sed -i -e "s@{{USER_GROUP}}@$username@g" barkis-validator-daemon
 sudo cp barkis-validator-daemon /etc/init.d/
 sudo cp barkis-validator-daemon.service /etc/systemd/system
 
-./barkisd init $moniker --home $nodeHome
+./bin/$version/barkisd init $moniker --home $nodeHome
 cp genesis.json $nodeHome/config/genesis.json
 
 sed -i -e "s/minimum-gas-prices = \"\"/minimum-gas-prices = \"$gas_price\"/g" $nodeHome/config/app.toml
+
+for index in $(jq -r '.upgrade | keys | .[]' $configFile); do
+    upgradeName=$(jq -r .upgrade[$index].name $configFile)
+    upgradeHeight=$(jq -r .upgrade[$index].height $configFile)
+
+    sed -i -e "s/$upgradeName = 9223372036854775807/$upgradeName = $upgradeHeight/g" $nodeHome/config/app.toml
+done
+
 sed -i -e "s/persistent_peers = \"\"/persistent_peers = \"$sentry_node\"/g" $nodeHome/config/config.toml
 
 # Deny inbond peer connection

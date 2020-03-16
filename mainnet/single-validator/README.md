@@ -14,5 +14,5 @@ wget hhttps://raw.githubusercontent.com/barkisnet/barkisnet-deploy/master/mainne
 Example command:
 
 ```shell
-wget https://raw.githubusercontent.com/barkisnet/barkisnet-deploy/master/mainnet/single-validator/deploy.sh -O deploy.sh && sh deploy.sh myBarkisNode 0.01ubarkis v2.2.1
+wget https://raw.githubusercontent.com/barkisnet/barkisnet-deploy/master/mainnet/single-validator/deploy.sh -O deploy.sh && sh deploy.sh myBarkisNode 0.01ubarkis v2.2.3
 ```

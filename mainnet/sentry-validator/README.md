@@ -10,7 +10,7 @@ cd $HOME && wget https://raw.githubusercontent.com/barkisnet/barkisnet-deploy/ma
 Example command:
 
 ```shell
-cd $HOME && wget https://raw.githubusercontent.com/barkisnet/barkisnet-deploy/master/mainnet/sentry-validator/deploy-sentry.sh -O deploy-sentry.sh && sh deploy-sentry.sh myBarkisNode 0.01ubarkis v2.2.1
+cd $HOME && wget https://raw.githubusercontent.com/barkisnet/barkisnet-deploy/master/mainnet/sentry-validator/deploy-sentry.sh -O deploy-sentry.sh && sh deploy-sentry.sh myBarkisNode 0.01ubarkis v2.2.3
 ```
 
 ### Get sentry node peer info

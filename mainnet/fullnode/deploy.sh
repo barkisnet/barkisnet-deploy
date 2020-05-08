@@ -33,8 +33,8 @@ configUrl=https://raw.githubusercontent.com/barkisnet/barkisnet-binary/master
 
 mkdir bin/$version -p
 
-wget $configUrl/$networkType/binary/barkisd -O bin/$version/barkisd
-wget $configUrl/$networkType/binary/barkiscli -O bin/$version/barkiscli
+wget $configUrl/$networkType/binary/$version/barkisd -O bin/$version/barkisd
+wget $configUrl/$networkType/binary/$version/barkiscli -O bin/$version/barkiscli
 wget $configUrl/$networkType/genesis.json -O genesis.json
 wget $configUrl/$networkType/networkConfig.json -O networkConfig.json
 wget $configUrl/$networkType/barkis-validator-daemon -O barkis-validator-daemon
@@ -73,6 +73,7 @@ sed -i -e "s/seeds = \"\"/seeds = \"$seed\"/g" $nodeHome/config/config.toml
 sed -i -e "s/127.0.0.1:26657/0.0.0.0:26657/g" $nodeHome/config/config.toml
 sed -i -e "s/persistent_peers = \"\"/persistent_peers = \"$persistent_peers\"/g" $nodeHome/config/config.toml
 sed -i -e "s/index_all_tags = false/index_all_tags = true/g" $nodeHome/config/config.toml
+sed -i -e "s/timeout_commit = \"1s\"/timeout_commit = \"5s\"/g" barkisNode/config/config.toml
 
 sudo systemctl daemon-reload
 

@@ -12,7 +12,7 @@ If you want to join the Barkis network, please follow the instructions of this r
 
 ## Join Devnet
 
-### [Devnet Deploy](testnet/README.md)
+### [Devnet Deploy](devnet/README.md)
 
 ## Join Testnet
 

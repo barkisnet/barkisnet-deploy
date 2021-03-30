@@ -28,8 +28,8 @@ fi
 curDir=$(pwd)
 username=$USER
 nodeHome=barkisNode
-networkType=barkisnet-mainnet
-configUrl=https://raw.githubusercontent.com/barkisnet/barkisnet-binary/master
+networkType=mainnet/deploy-config
+configUrl=https://raw.githubusercontent.com/barkisnet/barkisnet-deploy/master
 
 mkdir bin/$version -p
 

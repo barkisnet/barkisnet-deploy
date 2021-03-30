@@ -1,9 +1,21 @@
 # Barkisnet Deploy
 
-[Testnet Deploy](testnet/README.md)
+If you want to join the Barkis network, please follow the instructions of this repository.
 
-[Mainnet Fullnode_Deploy](mainnet/fullnode/README.md)
+## Join Mainnet
 
-[Mainnet Single_Validator_Deploy](mainnet/single-validator/README.md)
+### [Mainnet Fullnode_Deploy](mainnet/fullnode/README.md)
 
-[Mainnet Sentry_Validator_Deploy](mainnet/sentry-validator/README.md)
+### [Mainnet Single_Validator_Deploy](mainnet/single-validator/README.md)
+
+### [Mainnet Sentry_Validator_Deploy](mainnet/sentry-validator/README.md)
+
+## Join Devnet
+
+### [Devnet Deploy](testnet/README.md)
+
+## Join Testnet
+
+### [Testnet Deploy](testnet/README.md)
+
+

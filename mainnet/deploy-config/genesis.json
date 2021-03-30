@@ -1,0 +1,282 @@
+{
+  "genesis_time": "2019-11-24T12:00:00Z",
+  "chain_id": "barkisnet",
+  "consensus_params": {
+    "block": {
+      "max_bytes": "200000",
+      "max_gas": "2000000",
+      "time_iota_ms": "1000"
+    },
+    "evidence": {
+      "max_age": "1000000"
+    },
+    "validator": {
+      "pub_key_types": [
+        "ed25519"
+      ]
+    }
+  },
+  "app_hash": "",
+  "app_state": {
+    "slashing": {
+      "params": {
+        "max_evidence_age": "1814400000000000",
+        "signed_blocks_window": "10000",
+        "min_signed_per_window": "0.500000000000000000",
+        "downtime_jail_duration": "600000000000",
+        "slash_fraction_double_sign": "0.050000000000000000",
+        "slash_fraction_downtime": "0.001000000000000000"
+      },
+      "signing_infos": {},
+      "missed_blocks": {}
+    },
+    "bank": {
+      "send_enabled": true
+    },
+    "auth": {
+      "params": {
+        "max_memo_characters": "256",
+        "tx_sig_limit": "7",
+        "tx_size_cost_per_byte": "10",
+        "sig_verify_cost_ed25519": "590",
+        "sig_verify_cost_secp256k1": "1000"
+      }
+    },
+    "supply": {
+      "supply": []
+    },
+    "params": null,
+    "accounts": [
+      {
+        "address": "barkis1ye9ajxf8vl2m852epqah00edsypcz5zpcclatu",
+        "coins": [
+          {
+            "denom": "ubarkis",
+            "amount": "1000000000"
+          }
+        ],
+        "sequence_number": "0",
+        "account_number": "0",
+        "original_vesting": [],
+        "delegated_free": [],
+        "delegated_vesting": [],
+        "start_time": "0",
+        "end_time": "0",
+        "module_name": "",
+        "module_permissions": [
+          ""
+        ]
+      },
+      {
+        "address": "barkis19ccxcjkj7w504pn6k5y449cf3090mzakcnsjq2",
+        "coins": [
+          {
+            "denom": "ubarkis",
+            "amount": "1000000000"
+          }
+        ],
+        "sequence_number": "0",
+        "account_number": "0",
+        "original_vesting": [],
+        "delegated_free": [],
+        "delegated_vesting": [],
+        "start_time": "0",
+        "end_time": "0",
+        "module_name": "",
+        "module_permissions": [
+          ""
+        ]
+      },
+      {
+        "address": "barkis1zkf9ajfh8j2nwhk0zjv9a996xqse2rykf62yeq",
+        "coins": [
+          {
+            "denom": "ubarkis",
+            "amount": "124998000000000"
+          }
+        ],
+        "sequence_number": "0",
+        "account_number": "0",
+        "original_vesting": [],
+        "delegated_free": [],
+        "delegated_vesting": [],
+        "start_time": "0",
+        "end_time": "0",
+        "module_name": "",
+        "module_permissions": [
+          ""
+        ]
+      }
+    ],
+    "crisis": {
+      "constant_fee": {
+        "denom": "ubarkis",
+        "amount": "100000000000"
+      }
+    },
+    "genutil": {
+      "gentxs": [
+        {
+          "type": "cosmos-sdk/StdTx",
+          "value": {
+            "msg": [
+              {
+                "type": "cosmos-sdk/MsgCreateValidator",
+                "value": {
+                  "description": {
+                    "moniker": "huanghe",
+                    "identity": "",
+                    "website": "",
+                    "details": ""
+                  },
+                  "commission": {
+                    "rate": "0.100000000000000000",
+                    "max_rate": "0.200000000000000000",
+                    "max_change_rate": "0.010000000000000000"
+                  },
+                  "min_self_delegation": "1",
+                  "delegator_address": "barkis19ccxcjkj7w504pn6k5y449cf3090mzakcnsjq2",
+                  "validator_address": "barkisvaloper19ccxcjkj7w504pn6k5y449cf3090mzak0fy8tl",
+                  "pubkey": "barkisvalconspub1zcjduepqxk5urkt2x3heweyahsrjl593dp6l9lfrmjnxz2mxvht2y6a2yfhqd47wft",
+                  "value": {
+                    "denom": "ubarkis",
+                    "amount": "1000000000"
+                  }
+                }
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas": "200000"
+            },
+            "signatures": [
+              {
+                "pub_key": {
+                  "type": "tendermint/PubKeySecp256k1",
+                  "value": "AuWX2QxX96BPofeSim+8xtDV+MHpieYPb6xQybVHGtNN"
+                },
+                "signature": "JZ/R4/TuFD1/PocBYRSAMC2BTTmSDY7xESQLYR+xh+lRli0eirM+IYOYVclpiwggQBIZr09cvYCr/Aa+q7n2lQ=="
+              }
+            ],
+            "memo": "4198aa102ecb0ac47175e751ae03e38025d94b7e@121.40.208.205:26656"
+          }
+        },
+        {
+          "type": "cosmos-sdk/StdTx",
+          "value": {
+            "msg": [
+              {
+                "type": "cosmos-sdk/MsgCreateValidator",
+                "value": {
+                  "description": {
+                    "moniker": "changjiang",
+                    "identity": "",
+                    "website": "",
+                    "details": ""
+                  },
+                  "commission": {
+                    "rate": "0.100000000000000000",
+                    "max_rate": "0.200000000000000000",
+                    "max_change_rate": "0.010000000000000000"
+                  },
+                  "min_self_delegation": "1",
+                  "delegator_address": "barkis1ye9ajxf8vl2m852epqah00edsypcz5zpcclatu",
+                  "validator_address": "barkisvaloper1ye9ajxf8vl2m852epqah00edsypcz5zp0ztgqf",
+                  "pubkey": "barkisvalconspub1zcjduepq5krjqhjaf5natrlzngr8jnt2ku7sn0dks7rt4846xl2uev5vav6qlz7hxv",
+                  "value": {
+                    "denom": "ubarkis",
+                    "amount": "1000000000"
+                  }
+                }
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas": "200000"
+            },
+            "signatures": [
+              {
+                "pub_key": {
+                  "type": "tendermint/PubKeySecp256k1",
+                  "value": "A+Op8cZnxV+89uf4Mt8cVkFrTDiIu30mpOFaa0QQMBVg"
+                },
+                "signature": "YBW3ZdST87KQZbe1UXmUESQdv8PR0Uf+32KLnuT9xO8j0B28MWS03zabu3e+yhNswm56oGIJT4F1taEfFa/JOQ=="
+              }
+            ],
+            "memo": "4c2062b614a25f8991986bfe711fa5a7033b8120@121.40.154.212:26656"
+          }
+        }
+      ]
+    },
+    "gov": {
+      "starting_proposal_id": "1",
+      "deposits": null,
+      "votes": null,
+      "proposals": null,
+      "deposit_params": {
+        "min_deposit": [
+          {
+            "denom": "ubarkis",
+            "amount": "10000000000"
+          }
+        ],
+        "max_deposit_period": "1209600000000000"
+      },
+      "voting_params": {
+        "voting_period": "1209600000000000"
+      },
+      "tally_params": {
+        "quorum": "0.400000000000000000",
+        "threshold": "0.500000000000000000",
+        "veto": "0.334000000000000000"
+      }
+    },
+    "distribution": {
+      "fee_pool": {
+        "community_pool": []
+      },
+      "community_tax": "0.000000000000000000",
+      "base_proposer_reward": "0.02500000000000000",
+      "bonus_proposer_reward": "0.100000000000000000",
+      "withdraw_addr_enabled": true,
+      "delegator_withdraw_infos": [],
+      "previous_proposer": "",
+      "outstanding_rewards": [],
+      "validator_accumulated_commissions": [],
+      "validator_historical_rewards": [],
+      "validator_current_rewards": [],
+      "delegator_starting_infos": [],
+      "validator_slash_events": []
+    },
+    "staking": {
+      "params": {
+        "unbonding_time": "2592000000000000",
+        "max_validators": 31,
+        "max_entries": 7,
+        "bond_denom": "ubarkis"
+      },
+      "last_total_power": "0",
+      "last_validator_powers": null,
+      "validators": null,
+      "delegations": null,
+      "unbonding_delegations": null,
+      "redelegations": null,
+      "exported": false
+    },
+    "mint": {
+      "minter": {
+        "inflation": "0.000000000000000000",
+        "annual_provisions": "0.000000000000000000",
+        "remained_tokens": []
+      },
+      "params": {
+        "mint_denom": "ubarkis",
+        "inflation_rate_change": "0.000000000000000000",
+        "inflation_max": "0.000000000000000000",
+        "inflation_min": "0.000000000000000000",
+        "goal_bonded": "0.000000000000000000",
+        "blocks_per_year": "6311520"
+      }
+    }
+  }
+}

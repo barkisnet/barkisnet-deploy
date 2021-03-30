@@ -1,0 +1,26 @@
+{
+  "seed": "5426c8acf294a9d790edfee6530b20d744d228dd@3.115.1.94:26656,cc126c16f14eb5e8d95d1af11ee5a46278bd2532@18.176.224.108:26656,fb596c849894f37f7aa5a5b04202bf198c8e372e@52.195.18.144:26656",
+  "persistent_peers": "",
+  "upgrade": [
+    {
+      "name": "RewardUpgrade",
+      "height": 563500
+    },
+    {
+      "name": "TokenIssueHeight",
+      "height": 1336800
+    },
+    {
+      "name": "UpdateVotingPeriodHeight",
+      "height": 1360843
+    },
+    {
+      "name": "UpdateTokenSymbolRulesHeight",
+      "height": 1450500
+    },
+    {
+      "name": "TokenDesLenLimitUpgradeHeight",
+      "height": 1524000
+    }
+  ]
+}
